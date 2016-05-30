@@ -1,0 +1,58 @@
+h1{
+    color: red;
+    font-size:40px; 
+}
+
+
+/*
+div {
+    background-color: bisque;
+    width: 50%;
+    height: 100px;
+    text-align: center;
+    border: 10px s
+    
+}
+*/
+.aaa {
+ font-style: italic; 
+    font-weight: 100;
+    text-decoration: underline;
+    line-height:100px ;
+}
+.bbb {
+  /*  
+    width: 100%;
+    height: 500px;
+    */        
+    background-image: url("../image/a.jpg");
+}
+
+
+
+/* unvisited link */
+a:link {
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+li {
+    font-style: oblique;
+    color: brown;
+    list-style-type: circle;
+    list-style-position: inherit;
+}
