@@ -1,26 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="js/canvasjs.min.js"></script>
+	<script type="text/javascript">
+	window.onload = function() {       $.getJSON('https://api.thingspeak.com/channels/60126/fields/1.json?api_key=Q9GXW9WOFZT285IJ&timezone=Asia/Taipei&results=10',
+                    function(dataTS) { // Insert JavaScript code to operate on return data
+                        alert("channel: " + dataTS.channel.id + "\nname: " + dataTS.channel.name+ "\n連線成功");
+                        var chart = new CanvasJS.Chart("chartContainer", {
+			title: {
+				text: "Line Chart"
+			},
+			axisX: {
+                title: "axisX Title",
+				//interval: 10 ,
+                maximum:dataTS.feeds[7].field1,
+                minimum:dataTS.feeds[0].field1
+			},
+            axisY: {
+                title: "axisY Title",
+				interval: 10 
+                
+			},                
+			data: [{
+				type: "line",
+				dataPoints: [
+				  { x: dataTS.feeds[0].field1, y: dataTS.feeds[0].entry_id },
+				  { x: dataTS.feeds[1].field1, y: dataTS.feeds[1].entry_id },
+				  { x: dataTS.feeds[2].field1, y: dataTS.feeds[2].entry_id },
+				  { x: dataTS.feeds[3].field1, y: dataTS.feeds[3].entry_id },
+				  { x: dataTS.feeds[4].field1, y: dataTS.feeds[4].entry_id },
+				  { x: dataTS.feeds[5].field1, y: dataTS.feeds[5].entry_id },
+				  { x: dataTS.feeds[6].field1, y: dataTS.feeds[6].entry_id },
+				  { x: dataTS.feeds[7].field1, y: dataTS.feeds[7].entry_id },
+				]
+			}]
+		});
+		chart.render();
+                    });
+	}
+	</script>
+<script>
+    function outchart() {
+        
+    }
+</script>
+	<title>CanvasJS Example</title>
 </head>
+
 <body>
-    <h1>laihaha eating1</h1>
-    <div>
-        <p class="aaa">laihiaha is </p>
-        <p class="bbb">haha</p>
-        <a href="page/page1.html">lucy</a>
-    </div>
-     <ul>
-         <li>哈哈</li>
-         <li>笨笨</li>
-         <li>笨笨</li>
-     </ul>
-     <ol>
-         <li>ghvjbufhggybh</li>
-         <li>ghvjbufhggybh</li>
-         <li>ghvjbufhggybh</li>
-     </ol>
+	<div id="chartContainer"></div>    
+    <p>(x,y)=</p>
+    <br><br>
+    <button onclick="outchart()">檢視x,y值</button>
+    
 </body>
+
 </html>
