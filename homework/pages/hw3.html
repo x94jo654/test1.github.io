@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="js/canvasjs.min.js"></script>
+    <script type="text/javascript">
+	window.onload = function() {
+		var chart = new CanvasJS.Chart("chartContainer", {
+			title: {
+				text: "Line Chart"
+			},
+			axisX: {
+				interval: 10
+			},
+			data: [{
+				type: "line",
+				dataPoints: [
+				  { x: 10, y: 45 },
+				  { x: 20, y: 14 },
+				  { x: 30, y: 20 },
+				  { x: 40, y: 60 },
+				  { x: 50, y: 50 },
+				  { x: 60, y: 80 },
+				  { x: 70, y: 40 },
+				  { x: 80, y: 60 },
+				  { x: 90, y: 10 },
+				  { x: 100, y: 50 },
+				  { x: 110, y: 40 },
+				  { x: 120, y: 14 },
+				  { x: 130, y: 70 },
+				  { x: 140, y: 40 },
+				  { x: 250, y: 300 },
+				]
+			}]
+		});
+		chart.render();
+	}
+	</script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                $.getJSON('https://api.thingspeak.com/channels/60126/fields/1.json?api_key=Q9GXW9WOFZT285IJ&timezone=Asia/Taipei&results=10',
+                    function(dataTS) { // Insert JavaScript code to operate on return data
+                        alert("x0: " + chart.data[0].dataPoints[0].x + "y0: " + chart.data[0].dataPoints[0].y);
+                    });
+            });
+        });
+      </script>
+</head>
+
+<body>
+    <div id="chartContainer" style="height: 400px; width: 100%;">123</div>
+    <button>按我</button>
+</body>
+
+</html>

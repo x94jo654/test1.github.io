@@ -1,0 +1,12 @@
+/*
+ 一些基本設定
+*/
+*{
+    text-align-last: left;
+    box-sizing:border-box;
+}
+
+#chartContainer {
+    
+    width: 50%;
+}
