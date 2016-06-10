@@ -1,59 +1,36 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-    <script src="js/canvasjs.min.js"></script>
-	<script type="text/javascript">
-	window.onload = function() {       $.getJSON('https://api.thingspeak.com/channels/60126/fields/1.json?api_key=Q9GXW9WOFZT285IJ&timezone=Asia/Taipei&results=10',
-                    function(dataTS) { // Insert JavaScript code to operate on return data
-                        alert("channel: " + dataTS.channel.id + "\nname: " + dataTS.channel.name+ "\n連線成功");
-                        var chart = new CanvasJS.Chart("chartContainer", {
-			title: {
-				text: "Line Chart"
-			},
-			axisX: {
-                title: "axisX Title",
-				//interval: 10 ,
-                maximum:dataTS.feeds[7].field1,
-                minimum:dataTS.feeds[0].field1
-			},
-            axisY: {
-                title: "axisY Title",
-				interval: 10 
-                
-			},                
-			data: [{
-				type: "line",
-				dataPoints: [
-				  { x: dataTS.feeds[0].field1, y: dataTS.feeds[0].entry_id },
-				  { x: dataTS.feeds[1].field1, y: dataTS.feeds[1].entry_id },
-				  { x: dataTS.feeds[2].field1, y: dataTS.feeds[2].entry_id },
-				  { x: dataTS.feeds[3].field1, y: dataTS.feeds[3].entry_id },
-				  { x: dataTS.feeds[4].field1, y: dataTS.feeds[4].entry_id },
-				  { x: dataTS.feeds[5].field1, y: dataTS.feeds[5].entry_id },
-				  { x: dataTS.feeds[6].field1, y: dataTS.feeds[6].entry_id },
-				  { x: dataTS.feeds[7].field1, y: dataTS.feeds[7].entry_id },
-				]
-			}]
-		});
-		chart.render();
-                    });
-	}
-	</script>
-<script>
-    function outchart() {
-        
-    }
-</script>
-	<title>CanvasJS Example</title>
+    <meta charset="UTF-8">
+    <title>期末專題</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-	<div id="chartContainer"></div>    
-    <p>(x,y)=</p>
-    <br><br>
-    <button onclick="outchart()">檢視x,y值</button>
-    
+    <header>
+        <img src="images/HTML.jpg" alt="">
+        <h1>期末專題DAMO</h1>
+        <p>賴韋志</p>
+    </header>
+    <div>
+        <img src="images/html2.png" alt="">
+        <a href="pages/hw1.html">作業一</a>
+        <p>iphone</p>
+    </div>
+    <div>
+        <img src="images/css.jpg" alt="">
+        <a href="pages/hw2.html">作業二</a>
+        <p>排版</p>
+    </div>
+    <div>
+        <img src="images/bootstrap.jpg" alt="">
+        <a href="pages/hw3.html.html">作業三</a>
+        <p>運用Bootstap製做食記</p>
+    </div>
+    <div>
+        <img src="images/jQuery.jpg" alt="">
+        <a href="pages/hw4.html">作業四</a>
+        <p>表單計算</p>
+    </div>
 </body>
-
 </html>
