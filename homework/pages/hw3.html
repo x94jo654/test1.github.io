@@ -2,56 +2,136 @@
 <html>
 
 <head>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-    <script src="js/canvasjs.min.js"></script>
-    <script type="text/javascript">
-	window.onload = function() {
-		var chart = new CanvasJS.Chart("chartContainer", {
-			title: {
-				text: "Line Chart"
-			},
-			axisX: {
-				interval: 10
-			},
-			data: [{
-				type: "line",
-				dataPoints: [
-				  { x: 10, y: 45 },
-				  { x: 20, y: 14 },
-				  { x: 30, y: 20 },
-				  { x: 40, y: 60 },
-				  { x: 50, y: 50 },
-				  { x: 60, y: 80 },
-				  { x: 70, y: 40 },
-				  { x: 80, y: 60 },
-				  { x: 90, y: 10 },
-				  { x: 100, y: 50 },
-				  { x: 110, y: 40 },
-				  { x: 120, y: 14 },
-				  { x: 130, y: 70 },
-				  { x: 140, y: 40 },
-				  { x: 250, y: 300 },
-				]
-			}]
-		});
-		chart.render();
-	}
-	</script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $.getJSON('https://api.thingspeak.com/channels/60126/fields/1.json?api_key=Q9GXW9WOFZT285IJ&timezone=Asia/Taipei&results=10',
-                    function(dataTS) { // Insert JavaScript code to operate on return data
-                        alert("x0: " + chart.data[0].dataPoints[0].x + "y0: " + chart.data[0].dataPoints[0].y);
-                    });
-            });
-        });
-      </script>
+    <meta charset="UTF-8">
+    <title>Bootstrap 附加导航（Affix）插件</title>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="../css/hw3.css">
 </head>
 
-<body>
-    <div id="chartContainer" style="height: 400px; width: 100%;">123</div>
-    <button>按我</button>
+<body data-spy="scroll" data-target="#myScrollspy">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3" id="myScrollspy">
+                <ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="500">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">草屯 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+
+                            <li class="active"><a href="#section-1">世傳羊肉羹</a></li>
+                            <li><a href="#section-2">京すし手作割烹</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">中興 <b class="caret"></b></a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="#section-3">布朗司手製烘焙屋</a></li>
+                            <li><a href="#section-4">梅園餡餅粥</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">南投 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#section-5">友德意麵</a></li>
+                            <li><a href="#section-6">江城北方麵食館</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="#section-1">草屯-世傳羊肉羹</a></li>
+                    <li><a href="#section-2">草屯-京すし手作割烹</a></li>
+                    <li><a href="#section-3">中興-布朗司手製烘焙屋</a></li>
+                    <li><a href="#section-4">中興-梅園餡餅粥</a></li>
+                    <li><a href="#section-5">南投-友德意麵</a></li>
+                    <li><a href="#section-6">南投-江城北方麵食館</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-9">
+                <div id="myCarousel" class="carousel slide">
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <!-- 轮播（Carousel）项目 -->
+                    <div id="carousel1" class="carousel-inner">
+                        <div class="item active">
+                            <img src="../images/hw3/0_1.jpg" alt="First slide">
+                            <div class="carousel-caption">草屯鎮</div>
+                        </div>
+                        <div class="item">
+                            <img src="../images/hw3/0_2.jpg" alt="Second slide">
+                            <div class="carousel-caption">中興新村</div>
+                        </div>
+                        <div class="item">
+                            <img src="../images/hw3/0_3.jpg" alt="Third slide">
+                            <div class="carousel-caption">南投市</div>
+                        </div>
+                    </div>
+                    <!-- 轮播（Carousel）导航 -->
+                    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                </div>
+                <div class="row">
+                    <div id="Introduction" class="col-sm-6 ">
+                        <h2 id="section-1">草屯-世傳羊肉羹</h2>
+                        <p>本特色:位於草屯形象商圈內人很多，店面蠻乾淨的，魷魚羹麵還蠻好吃的，可以便點個酸梅湯喝喝(中興新村名產)價位100初</p>
+                    </div>
+                    <div class="col-sm-6 "><img src="../images/hw3/1_1.jpg" alt=""></div>
+                    <div class="col-sm-6 "><img src="../images/hw3/1_2.jpg" alt=""></div>
+                    <div class="col-sm-6 "><img src="../images/hw3/1_3.jpg" alt=""></div>
+                </div>
+                <div class="row">
+                    <div id="Introduction" class="col-sm-6 ">
+                        <h2 id="section-2">草屯-京すし手作割烹</h2>
+                        <p>本店特色:人很多但坐位少,運氣不好有機會等很久，本人不常吃日式料理,但蓋飯不錯，生魚片滿多人點的,因為哇沙米是現磨的，價位200~300</p>
+                    </div>
+                    <div class="col-sm-6 "><img src="../images/hw3/1_4.jpg" alt=""></div>
+                    <div class="col-sm-6 "><img src="../images/hw3/1_5.jpg" alt=""></div>
+                    <div class="col-sm-6 "><img src="../images/hw3/1_6.jpg" alt=""></div>
+                </div>
+                <div class="row">
+                    <div id="Introduction" class="col-sm-6 ">
+                        <h2 id="section-3">中興-布朗司手製烘焙屋</h2>
+                        <p>本店特色：很優閒的一家店，本人常吃的早餐店，三明治有30 35 45等很划算，其他套餐覺得太貴只試過一次，不過很多外地遊客都點套餐，看起來也不錯吃</p>
+                    </div>
+                    <div class="col-sm-6 "><img src="../images/hw3/2_1.jpg" alt=""></div>
+                    <div class="col-sm-6 "><img src="../images/hw3/2_2.jpg" alt=""></div>
+                    <div class="col-sm-6 "><img src="../images/hw3/2_3.jpg" alt=""></div>
+                </div>
+                <div class="row">
+                    <div id="Introduction" class="col-sm-6 ">
+                        <h2 id="section-4">中興-梅園餡餅粥</h2>
+                        <p>本店特色:周末人超級多，像請客一樣,但翻桌率很高，個人不愛刀削麵，都點蒸餃和餡餅，價位100初</p>
+                    </div>
+                    <div class="col-sm-6 "><img src="../images/hw3/2_4.jpg" alt=""></div>
+                    <div class="col-sm-6 "><img src="../images/hw3/2_5.jpg" alt=""></div>
+                    <div class="col-sm-6 "><img src="../images/hw3/2_6.jpg" alt=""></div>
+                </div>
+                <div class="row">
+                    <div id="Introduction" class="col-sm-6 ">
+                        <h2 id="section-5">南投-友德意麵</h2>
+                        <p>本店特色：道地的南投意麵,基本上南投市場附近很多,這家是有名的比較貴但也很好吃,本人會挑附近便宜吃,喜歡也可以在市場買沒煮的回家煮</p>
+                    </div>
+                    <div class="col-sm-6 "><img src="../images/hw3/3_1.jpg" alt=""></div>
+                    <div class="col-sm-6 "><img src="../images/hw3/3_2.jpg" alt=""></div>
+                    <div class="col-sm-6 "><img src="../images/hw3/3_3.jpg" alt=""></div>
+                </div>
+                <div class="row">
+                    <div id="Introduction" class="col-sm-6 ">
+                        <h2 id="section-6">南投-江城北方麵食館</h2>
+                        <p>本店特色：本人推測，中興新村和南投很多外省人，所以麵食館也很多，這佳算最近整修完，所以看起來蠻新的，店裡的東西不便宜但很大份，適合一起吃，本人推薦蘿蔔糕與小籠湯包。</p>
+                    </div>
+                    <div class="col-sm-6 "><img src="../images/hw3/3_4.jpg" alt=""></div>
+                    <div class="col-sm-6 "><img src="../images/hw3/3_5.jpg" alt=""></div>
+                    <div class="col-sm-6 "><img src="../images/hw3/3_6.jpg" alt=""></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
