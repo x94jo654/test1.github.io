@@ -1,57 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-    <script src="js/canvasjs.min.js"></script>
-    <script type="text/javascript">
-	window.onload = function() {
-		var chart = new CanvasJS.Chart("chartContainer", {
-			title: {
-				text: "Line Chart"
-			},
-			axisX: {
-				interval: 10
-			},
-			data: [{
-				type: "line",
-				dataPoints: [
-				  { x: 10, y: 45 },
-				  { x: 20, y: 14 },
-				  { x: 30, y: 20 },
-				  { x: 40, y: 60 },
-				  { x: 50, y: 50 },
-				  { x: 60, y: 80 },
-				  { x: 70, y: 40 },
-				  { x: 80, y: 60 },
-				  { x: 90, y: 10 },
-				  { x: 100, y: 50 },
-				  { x: 110, y: 40 },
-				  { x: 120, y: 14 },
-				  { x: 130, y: 70 },
-				  { x: 140, y: 40 },
-				  { x: 250, y: 300 },
-				]
-			}]
-		});
-		chart.render();
-	}
-	</script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $.getJSON('https://api.thingspeak.com/channels/60126/fields/1.json?api_key=Q9GXW9WOFZT285IJ&timezone=Asia/Taipei&results=10',
-                    function(dataTS) { // Insert JavaScript code to operate on return data
-                        alert("x0: " + chart.data[0].dataPoints[0].x + "y0: " + chart.data[0].dataPoints[0].y);
-                    });
-            });
-        });
-      </script>
+    <meta charset="UTF-8">
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/hw4.css">
+    <title>心理測驗</title>
 </head>
 
 <body>
-    <div id="chartContainer" style="height: 400px; width: 100%;">123</div>
-    <button>按我</button>
+    <div class="container">
+        <h2>1.有人撞破了辦公室的大花盆，位置就在離你座位不遠處，你會如何處理？</h2>
+        <input name="Q1" type="radio" value="1"> 離我不遠，那就主動去幫忙掃一下吧！
+        <br>
+        <input name="Q1" type="radio" value="2"> 心裡想誰撞的，還不趕快去清理！
+        <br>
+        <input name="Q1" type="radio" value="3"> 視若無睹，繼續做我的工作比較重要。
+        <br>
+        <input name="Q1" type="radio" value="4"> 誰趕快去找工友伯伯掃一下囉！
+
+        <h2>2.假如你要出席宴會，你會選擇哪種形狀的寶石掛在頸鍊上？</h2>
+        <input name="Q2" type="radio" value="1"> 菱形
+        <br>
+        <input name="Q2" type="radio" value="2"> 圓形
+        <br>
+        <input name="Q2" type="radio" value="3"> 星星形
+        <br>
+        <input name="Q2" type="radio" value="4"> 不規則形
+
+        <h2>3.一個機車騎士飆很快，即將撞上前面的一隻流浪狗，你關心的是狗還是人？</h2>
+        <input name="Q3" type="radio" value="1"> 騎士慘了
+        <br>
+        <input name="Q3" type="radio" value="2"> 狗慘了，可能會被撞死
+        <br>
+        <input name="Q3" type="radio" value="3"> 不關我的事
+        <br>
+        <input name="Q3" type="radio" value="4"> 沒事飆那麼快，罪有應得吧你
+
+        <h2>4.請選一組你覺得看來不錯的撲克牌組合？</h2>
+        <input name="Q4" type="radio" value="1"> 黑桃A+紅心Q
+        <br>
+        <input name="Q4" type="radio" value="2"> 梅花J+方塊
+        <br>
+        <input name="Q4" type="radio" value="3"> 紅心K+方塊K
+        <br>
+        <input name="Q4" type="radio" value="4"> 黑桃10+梅花10
+
+        <p id="result4">
+        </p>
+    </div>
+    <button id="btn1">提交</button>
+    <h2>結果:</h2>
+    <div id="box1">
+        <p id="ansbox"></p>
+    </div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="../js/hw4.js"></script>
 </body>
 
 </html>
