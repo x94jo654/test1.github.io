@@ -19,4 +19,8 @@
     border-width: 2px;
     border-color: black;
 }
+#btn1{
+    position: relative;
+    left: 50%;
+}
 

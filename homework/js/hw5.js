@@ -8,16 +8,16 @@ $(function () {
                     alert("channel: " + dataTS.channel.id + "\nname: " + dataTS.channel.name + "\n連線成功");
                     var chart = new CanvasJS.Chart("chartContainer", {
                         title: {
-                            text: dataTS.channel.name
+                            text: "第n筆資料"
                         },
                         axisX: {
-                            title: "第n筆資料",
+                            title: "date",
                             interval: 10,
                             maximum: dataTS.feeds[8].field1,
                             minimum: dataTS.feeds[0].field1
                         },
                         axisY: {
-                            title: dataTS.channel.name,
+                            title: "第n筆資料",
                             interval: 10
 
                         },
