@@ -5,7 +5,7 @@ $(function () {
             $("p").slideToggle();
             $.getJSON('https://api.thingspeak.com/channels/60126/fields/1.json?api_key=Q9GXW9WOFZT285IJ&timezone=Asia/Taipei&results=10',
                 function (dataTS) { // Insert JavaScript code to operate on return data
-                    alert("channel: " + dataTS.channel.id + "\nname: " + dataTS.channel.name + "\n連線成功");
+                    alert("\n連線成功");
                     var chart = new CanvasJS.Chart("chartContainer", {
                         title: {
                             text: "第n筆資料"
